@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ninjaGold</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div id="wrapper">
+		<p>Your Gold:   {{ gold }} </p>
+		<div class="row">
+			<div class="sec">
+				<h4>Farm</h4>
+				<p>(earns 10-20 golds)</p>
+				<form action="/process" method="POST">
+		  			<input type="hidden" name="building" value="farm"/>
+		  			<input type="submit" value="Find Gold!"/>
+				</form>
+
+
+				
+			</div>
+
+
+
+		</div>
+	</div>
+
+    

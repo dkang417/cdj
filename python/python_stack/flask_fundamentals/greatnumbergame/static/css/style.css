@@ -1,0 +1,40 @@
+#wrapper {
+	margin: 0 auto;
+	text-align: center;
+	
+}
+
+h1 {
+	color:pink;
+}
+
+.red {
+	background-color: red;
+	width: 200px;
+	text-align: center;
+	margin: 0 auto;
+	padding:50px 10px;
+	color: white;
+	border: solid 10px blue;
+}
+
+
+.green {
+	background-color: green;
+	width: 200px;
+	text-align: center;
+	margin: 0 auto;
+	padding:50px 10px;
+	color: white;
+}
+
+a {
+	color: black;
+	background-color: white;
+	padding:10px;
+	border: solid 2px black;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px black;	
+}
+
+
