@@ -14,12 +14,12 @@ def index():
 
 @app.route('/process', methods=['POST'])
 def process():
-	res = "" + str(session['gold'])
+	
 	
 	if request.form['building'] == 'farm':
 		session['gold'] = random.randrange(10,21)
 
 
-	return redirect('/',res=res)
+	return redirect('/')
 
 app.run(debug=True)
