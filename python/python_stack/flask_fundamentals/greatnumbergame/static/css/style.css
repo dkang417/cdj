@@ -1,7 +1,6 @@
 #wrapper {
 	margin: 0 auto;
 	text-align: center;
-	
 }
 
 h1 {
@@ -15,8 +14,13 @@ h1 {
 	margin: 0 auto;
 	padding:50px 10px;
 	color: white;
-	border: solid 10px blue;
+	border: solid 4px black;
 }
+
+input {
+	margin-top: 30px;
+}
+
 
 
 .green {
@@ -26,6 +30,7 @@ h1 {
 	margin: 0 auto;
 	padding:50px 10px;
 	color: white;
+	border: solid 4px black;
 }
 
 a {

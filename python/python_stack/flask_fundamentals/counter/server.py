@@ -17,6 +17,11 @@ def add_two():
 	session['count'] += 2
 	return redirect('/')
 
+@app.route('/minus', methods=['POST'])
+def minus_two():
+	session['count'] -= 2
+	return redirect('/')	
+
 @app.route('/clear', methods=['POST'])
 def clear():
 	session['count'] = 0

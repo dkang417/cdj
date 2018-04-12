@@ -10,7 +10,7 @@ import random
 def index():
 	
 	if session.get('randomNum') is None:
-		session['randomNum'] = random.randrange(1,10)
+		session['randomNum'] = random.randrange(1,11)
 	
 	res = ""
 	c = ""
@@ -30,10 +30,10 @@ def index():
 			res = str(session['randomNum']) + " was the number!"
 			c = "green"
 			button = Markup('<a href="/restart" class="button">Play again!</a>')
-
+			
 	else:
 		display = "hidden"
-	return render_template('index.html', res=res, c=c, display=display, button=button)
+	return render_template('index.html', res=res, c=c, display=display,button=button )
 
 
 

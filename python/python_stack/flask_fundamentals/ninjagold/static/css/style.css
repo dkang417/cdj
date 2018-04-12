@@ -1,0 +1,41 @@
+
+#wrapper{
+	width: 0 auto; 
+}
+
+.sec {
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+	margin-left: 10px;
+	border:  2px solid black;
+	margin-bottom: 30px;
+	padding:10px;
+}
+
+.sec h4 {
+	display: inline-block;
+	width: 90px;
+	text-align: center;
+	margin-left: 25px;
+}
+.sec p{
+	display: inline-block;
+	width: 250px;
+
+}
+
+.row {
+	width: 1200px;
+	display:inline-block; 
+}
+
+
+h4{
+	color: blue;
+}
+
+form {
+	display: inline;
+	width: 100px;
+}
