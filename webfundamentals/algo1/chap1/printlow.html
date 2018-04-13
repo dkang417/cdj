@@ -1,0 +1,27 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+	
+function printLow(arr){
+	var low = 10;
+	var high = 0;
+	for(var i = 0; i<arr.length; i++){
+		if(arr[i] > high){
+			high=arr[i];
+		}
+		else if(arr[i] < low){
+			low = arr[i];
+		}
+	}
+	console.log(low);
+	return (high);
+}
+printLow([3,5,4,1]);
+
+
+	
+</head>
+<body>
+
+</body>
+</html>

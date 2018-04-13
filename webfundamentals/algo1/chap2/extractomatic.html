@@ -1,0 +1,36 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		 
+// Given (1824,2), return 8. Given (1824,0), return 4
+//Given (1824,7), return 0.
+
+
+
+		function extractDigit(num,digitNum) {
+			if(digitNum == 0){
+				console.log(num % 10);
+			}
+			else if(digitNum == 1) {
+				console.log(Math.floor(num/10) %10);
+			}
+			else if(digitNum == 2) {
+				console.log(Math.floor(num/100) %10);
+			}
+			else if(digitNum == 3) {
+				console.log(Math.floor(num/1000) %10);
+			}
+			else if(digitNum >= 4) {
+				console.log(0);
+			}
+		};
+
+		extractDigit(985,2);
+		
+
+</head>
+<body>
+
+</body>
+</html>

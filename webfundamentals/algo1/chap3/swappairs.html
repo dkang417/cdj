@@ -1,0 +1,29 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+	
+	function swapPairs(arr){
+		var temp = arr[0];
+		var last = arr[arr.length-1];
+		for(var i = 0; i < arr.length; i++){
+			if (arr.indexOf(arr[i]) % 2 == 0 && arr.length % 2 == 0){
+				temp = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = temp;
+			} 
+
+
+		}
+		console.log(arr);
+	}
+	swapPairs([0,1,2,3,5,9]);
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

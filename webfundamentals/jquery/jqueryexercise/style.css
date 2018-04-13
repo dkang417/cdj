@@ -1,0 +1,74 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+#wrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+button{
+	box-shadow: 3px 3px 3px black;
+	font-size: 20px;
+	text-align: left;	
+	margin-left: 100px;
+
+}
+h2 {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+p {
+	display: inline-block;
+	padding-left: 20px;
+}
+#slideDown{
+	margin-left: 90px;
+}
+.second{
+	text-align: center;
+	margin-left: 0;
+	margin-bottom: 50px;
+	display: inline-block;
+	width: 700px;
+}
+.red {
+	color: red;
+}
+#hide {
+	width: 50px;
+	display: block;
+	margin-left: 375px;
+	margin-top: 20px;
+
+}
+#toggle {
+	display: block;
+	margin-top: 20px;
+	margin-left: 80px;
+}
+#fadeIn{
+	margin-top: 20px;
+	margin-left: 100px;
+	color: pink;
+}
+#after{
+	display: block;
+	margin-top: 20px;
+}
+#html{
+	display: block;
+	margin-top: 10px;
+	margin-left: 70px;
+	color: purple;
+}
+#boom {
+	margin-top: 10px;
+	margin-left: 70px;
+}
+#text {
+	display: block;
+	margin-top: 20px;
+	margin-left: 20px;
+}

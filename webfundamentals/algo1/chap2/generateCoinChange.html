@@ -1,0 +1,37 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//first i would divide 94 by 25. so we have 3 quarters.
+		//remainder is 94-75 =19
+		//next i would divide 19 by 10. so we have 1 dime.
+		//remainder is 19 - 10. so we have 9 cents.
+		//next i would divide 9 cents by 5. so we have 1nickel
+		//remainder is 9 - 5. so we have 4 cents left.
+		//last i would divide remainder by 1. so we have 4 pennies
+		//anytime u use string interpolation its not safe in older browsers 
+		function generateCoin(num) {
+		
+			var quarters = 0;
+			var dimes = 0;
+			var nickels = 0;
+			var pennies = 0;
+			var change = 0;
+
+			quarters = Math.floor(num / 25);  
+			change = num - quarters*25; 
+			dimes = Math.floor(change / 10);
+			change = change - dimes*10; 
+			nickels = Math.floor(change / 5); 
+			change = change - nickels*5; 
+			pennies = change; 
+
+		console.log(`quarters: ${quarters}, dimes: ${dimes}, nickels: ${nickels}, pennies: ${pennies}`);
+		}
+		generateCoin(94);
+	
+
+</head>
+<body>
+
+</body>
+</html>

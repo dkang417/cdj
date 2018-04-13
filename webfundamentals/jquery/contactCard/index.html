@@ -1,0 +1,50 @@
+<html>
+   <head>
+       <title>Contact Card</title>
+       <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script> 
+       <link rel="stylesheet" type="text/css" href="style.css">
+       <script type="text/javascript">
+        
+          $(document).ready(function(){
+            $(document).on("click","#button", function(){
+              $('#right').append('<h1>' + $('input[name="firstname"]').val()+'  ' +$('input[name="lastname"]').val() + '</h1>' +
+                '<p class="hide"> Click for Description </p>'
+                );
+            $(document).on("click",".hide", function(){
+            $('h1').hide();
+            $('.hide').hide();
+            $('#right').append('<p>' + $('textarea').val() + '</p>')
+
+          });
+              return false;
+            });
+
+
+              
+
+
+          });
+             
+      </script>
+     
+   </head>
+   <body>
+      <div id="wrapper">
+        <div id="left">
+          <form>
+            <label>First Name:</label>
+            <input type="text" name="firstname"><br>
+            <label>Last Name:</label>
+            <input type="text" name="lastname"> <br>
+            <label>Description:</label><br>
+            <textarea>Enter Description</textarea>
+          </form>
+          <button id="button" type="submit" value="submit">Submit</button>
+
+        </div>
+        <div id="right">
+         
+        </div>
+      </div>
+   </body>
+</html>

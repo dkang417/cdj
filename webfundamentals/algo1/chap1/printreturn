@@ -1,0 +1,21 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+	
+
+	function printReturn(arr){
+		console.log(arr[0]);
+		return(arr[1]);
+	}
+	printReturn([2,3]);
+		
+
+	</script>
+	}
+	
+	
+</head>
+<body>
+
+</body>
+</html>

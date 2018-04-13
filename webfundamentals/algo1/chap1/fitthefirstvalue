@@ -1,0 +1,30 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+	
+
+function fitValue(arr){
+	
+		if(arr[0] > arr.length){
+			console.log("Too big!");
+		}
+		else if(arr[0] < arr.length){
+			console.log("Too small!");
+		}
+		else{
+			console.log("Just right!");
+		}
+		
+}
+fitValue([5,3,3]);
+
+
+
+
+
+	
+</head>
+<body>
+
+</body>
+</html>

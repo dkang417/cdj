@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrapper {
+	margin:0 auto;
+	width: 800px;
+}
+#wrapper img {
+	width: 150px;
+	border: solid 5px black;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+h1{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+button{
+	display: block;
+	font-size: 17px;
+	padding:5px 15px;
+	color: white;
+	background-color: green;
+	box-shadow: 3px 3px 3px black;
+	margin-top: 20px;
+}

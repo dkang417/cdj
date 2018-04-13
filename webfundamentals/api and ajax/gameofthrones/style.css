@@ -1,0 +1,30 @@
+*{
+	margin:0;
+	padding:0;
+	width: 900px;
+}
+
+#wrapper{
+	
+
+}
+img{
+	width: 140px;
+	vertical-align: top;
+}
+
+body{
+	margin: 0 auto;
+	width: 500px;
+}
+
+h2{
+	margin:20px;
+	text-align: left;
+}
+
+p{
+	margin:20px;
+	color: pink;
+
+}

@@ -1,0 +1,200 @@
+*{
+	margin:0;
+	padding:0;
+	font-family: Arial;
+}
+.wrapper {
+	width: 960px;
+}
+.logo img {
+	width: 70px;
+	padding-left: 15px;
+	position: absolute;
+	top: 10px;
+	
+}
+.logo h1 {
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 20px 0 0 90px;
+}
+#header h2 {
+	padding: 10px 10px 10px 30px;
+	background-color: #4076a5;
+	color: white; 
+}
+.logo span {
+	color:#28659d;
+}
+#right {
+	display: inline-block;
+	width: 630px;	
+	vertical-align: top;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+#right span {
+	color: #04c1df;
+}
+#center_banner {
+	display: inline-block;
+	vertical-align: top;
+	width: 150px;
+}
+#center_banner img{
+	width: 30px;
+}
+#center_banner p {
+	display: inline-block;
+	color: #4076a5;
+}
+#contact {
+	display: inline-block;
+	width: 280px;
+	text-align: right;
+	margin: 0 0 10px 190px;
+}
+#contact img {
+	width: 40px;
+	position: relative;
+	top: -10px;
+}
+#contact-right {
+	display: inline-block;
+	vertical-align: top;
+	text-align:center;
+	font-size: 12px;
+	position: relative;
+	top: -20px;
+}
+#contact-right span {
+	color: #02c0df;
+	font-size: 22px;
+}
+#main-content {
+	padding-top: 10px;
+	border-top: 1px solid black;
+}
+#main-content h4{
+	color: #4076a5;
+	margin-bottom: 10px; 
+}
+#main-content p{
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+#main-content ol,
+#main-content ul {
+	margin-left: 50px;
+}
+#main-content li {
+	font-size: 15px;
+}
+#main-content img {
+	width: 260px;
+	margin:30px 0 30px 170px;
+}
+#left {
+	display: inline-block;
+	width: 300px;
+	margin: 20px 0 0 20px;
+}
+#sidebar-top {
+	margin-left: 5px;
+	width: 250px;
+	border-bottom: 1px solid black;
+	display: inline-block;	
+}
+#sidebar-top .blue {
+	color: #3D79AB;
+}
+#sidebar-top h5{
+	margin-top: 10px;
+}
+#main-content .bold {
+	font-weight: 900;
+	color: black;
+}
+#sidebar-top span {
+	color: red;
+}
+#sidebar-top p span {
+	color: #3D79AB;
+}
+#sidebar-top .video {
+	color: white;
+	background-color: #3D79AB;
+	border-radius: 3px;
+	width: 165px;
+	padding: 10px 30px;
+}
+#sidebar-top .resources {
+	color: white;
+	background-color: #ef7800;
+	border-radius: 3px;
+	width: 165px;
+	padding: 10px 30px;
+	margin: 5px 0 30px 0;
+}
+#sidebar-top a {
+	text-decoration: none;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	box-shadow: 2px 2px 2px black;	
+	margin-top: 20px;
+}
+#banner {
+	background-image: url("images/ad_background.png");
+	width: 250px;
+	height: 400px;
+	margin-top: 30px;
+	display: inline-block;
+}
+#banner h2 {
+	text-align: center;
+	display: inline-block;
+	width: 220px;
+	vertical-align: top;
+	margin: 30px 0 0 10px;
+	color: white;
+}
+#banner img {
+	width: 110px;
+	margin: 0 0 20px 60px;
+}
+#banner a {
+	color: white;
+	background-color: #2FC7DC;
+	text-decoration: none;
+	padding: 10px 30px;
+	border-radius: 3px;
+	margin-left:15px;
+}
+#footer {
+	border-top: 5px solid #3D79AB;
+	border-left: 5px solid #3D79AB;;
+	border-right: 5px solid #3D79AB;
+	margin-top: 10px;
+	height: 130px;
+}
+#footer img {
+	width: 90px;
+	margin: 10px 0 0 20px;
+}
+#footer-content h4{
+	font-size: 20px;
+	color: #3D79AB;
+}
+#footer-content {
+	display: inline-block;
+	width: 500px;
+	text-align: left;
+	margin-left: 120px;
+	position: relative;
+	top: -90px;
+	font-size: 15px;
+}
+#footer-content a {
+	text-decoration: none;
+}

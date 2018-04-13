@@ -1,0 +1,23 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		 
+		function fib(num){ 
+
+			var previous_first = 0, previous_second=1,next = 1;
+			for(var i =2; i <= num; i++){
+				next = previous_first + previous_second;
+				previous_first = previous_second;
+				previous_second = next;
+			}
+			console.log(next);
+			
+		};
+
+		fib(7);
+</head>
+<body>
+
+</body>
+</html>

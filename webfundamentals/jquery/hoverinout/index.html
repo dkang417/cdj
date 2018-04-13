@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NinjatoCat</title>
+	<script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('img').hover(function(){
+				$(this).attr('temp',$(this).attr('src'));
+				$(this).attr('src',$(this).attr('alt-src'));
+				$(this).attr('alt-src',$(this).attr('temp'));
+			});
+		});
+	</script> 
+
+</head>
+<body>
+	<div id="wrapper">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+		<img src="images/ninja.png" alt-src="images/prince.jpg" temp="">
+	</div>
+	
+
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,39 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+
+
+
+		function getDig(num){
+			var len = Math.ceil(Math.log(num + 1) / Math.LN10);
+			console.log(len);
+		};
+
+		function sigNum(num){
+			var length =getDig(num);
+			if(length == 5){
+				console.log(Math.floor(num/100000) % 10);
+			}
+			else if (length == 4){
+				console.log(Math.floor(num/10000) %10);
+			}
+			else if (length == 3) {
+				console.log(Math.floor(num/1000)%10);
+			}
+			else if (length == 2){
+				console.log(Math.floor(num/100)%10);
+			}
+			else if (length == 1){
+				console.log(Math.floor(num/10) %10);
+			}
+		};
+
+		sigNum(12345);
+
+
+</head>
+<body>
+
+</body>
+</html>

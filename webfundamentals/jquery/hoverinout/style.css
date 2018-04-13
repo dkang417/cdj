@@ -1,0 +1,10 @@
+*{
+	margin:0;
+	padding:0;
+	width: 800px;
+}
+img{
+	width: 160px;
+	border: solid 2px black;
+	margin-bottom: 20px;
+}

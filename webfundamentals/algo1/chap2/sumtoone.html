@@ -1,0 +1,21 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+		//sumToOne(928) returns 1, because 9+2+8 = 19, then 1+9 = 10, then 1+0 = 1.
+
+		function sumOne(num) {
+			var sum = 0;
+			while(num > 0){
+				sum += num%10;
+				num = Math.floor(num/10);
+			}
+			console.log(sum);
+		}
+		sumOne(928);		//19 
+
+</head>
+<body>
+
+</body>
+</html>

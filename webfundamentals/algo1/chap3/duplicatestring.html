@@ -1,0 +1,27 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+
+	function removeDuplicates(arr) {
+    var seen = {}; 
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in seen)) {
+            newArr.push(arr[i]);
+           seen[arr[i]] = true;
+        }
+    }
+    console.log(newArr);
+
+	}
+
+	removeDuplicates(["abe","bill","bill","chris","chris"]);
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

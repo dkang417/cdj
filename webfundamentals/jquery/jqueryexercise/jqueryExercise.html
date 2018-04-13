@@ -1,0 +1,230 @@
+<head>
+	<title></title>
+	<script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('#makered').click(function(){
+				$('#turnred').addClass('red');
+			});
+			$('.slideToggle').click(function(){
+				$("#slideToggle").slideToggle();
+			});
+
+			$('.hide').click(function(){
+				$("#hide").hide();
+			});
+			$('.show').click(function(){
+				$("#hide").show();
+			});
+			$('.toggle').click(function(){
+				$("#toggle").toggle();
+			});
+			$('.slideDown').click(function(){
+				$("#slideDown").slideDown();
+			});
+			$('.slideUp').click(function(){
+				$("#slideDown").slideUp();
+			});
+			$('#fadeIn').hide();
+			$('.fadeIn').click(function(){
+				$("#fadeIn").fadeIn();
+			});
+			$('.fadeOut').click(function(){
+				$("#fadeIn").fadeOut();
+			});
+			$('.before').click(function(){
+				$('#before').before('Hi');
+			})
+			$('.after').click(function(){
+				$('#after').after('Hi');
+			})
+			$('.append').click(function(){
+				$('#appendhere').append('Heyyyyy');
+			})
+			$('.html').click(function(){
+				$('#html').html( "<p>All new content. <em>You bet!</em></p>" );
+			})
+
+			$(".attr").click(function(){
+    		$("#google").attr({
+      		  "href" : "https://www.google.com",
+       			"title" : "google"
+   			 	});
+			});
+
+			$(".val").click(function(){
+				$("input:text").val("boom");
+			});
+
+			$(".text").click(function(){
+				$("#text").text("Bacon ipsum dolor amet turducken boudin buffalo meatball. Capicola kielbasa pancetta meatball, boudin shank t-bone filet mignon short ribs short loin ball tip biltong. Shankle kielbasa cupim ribeye salami pork loin swine shank andouille boudin. Spare ribs prosciutto shoulder t-bone turducken jerky pork loin shankle andouille pork ground round bacon.");
+			});
+
+
+			
+		});
+
+	</script> 
+</head>
+<body>
+	<div id="wrapper">
+		<div class="top-row">
+			<h2>AddClass</h2>
+			<div class="second">
+				<button id="makered">AddClass</button>
+				<p id="turnred">click the button to add class 'red' to this paragraph</p>		
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>SlideToggle</h2>
+			<div class="second">
+				<button class="slideToggle">SlideToggle</button>
+				<p>click the button to slide toggle and hide this paragraph</p>	
+				<p id="slideToggle">now you see me...</p>		
+			</div>	
+		</div>
+
+
+		<div class="top-row">
+			<h2>hide</h2>
+			<div class="second">
+				<button class="hide">.hide</button>
+				<p>click the button to hide this image</p>	
+				<img id="hide" src="images/icon.png">	
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>show</h2>
+			<div class="second">
+				<button class="show">.show</button>	
+				<p>click the button to show the image</p>
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>Toggle</h2>
+			<div class="second">
+				<button class="toggle">.toggle</button>	
+				<p>click the button to toggle the paragraph</p>
+				<p id="toggle">toggle me again and again!</p>
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>slideDown</h2>
+			<div class="second">
+				<button class="slideDown">.slideDown</button>	
+				<p>click the button to slide the image down</p>
+				<img id="slideDown" src="images/ninja.png" alt="ninja">
+			</div>	
+		</div>
+		<div class="top-row">
+			<h2>slideUp</h2>
+			<div class="second">
+				<button class="slideUp">.slideUp</button>	
+				<p>click the button to slide the image up!</p>
+				
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>fadeIn</h2>
+			<div class="second">
+				<button class="fadeIn">.fadeIn</button>	
+				<p>click the button to fadeIn the paragraph!</p>
+				<p id="fadeIn">WEEEEEEEEEEEEEEE!!!!!!!!!!!!</p>
+			</div>	
+		</div>
+		<div class="top-row">
+			<h2>fadeOut</h2>
+			<div class="second">
+				<button class="fadeOut">.fadeOut</button>	
+				<p>click the button to fadeout the above paragraph!</p>
+				</p>
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>before</h2>
+			<div class="second">
+				<button class="before">.before</button>	
+				<p class="here">click the button to add text:</p>
+				<p id="before">before me</p>
+				
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>after</h2>
+			<div class="second">
+				<button class="after">.after</button>	
+				<p class="here2">click the button to add text</p>
+				<p id="after">after me:</p>
+				
+			</div>	
+		</div>
+
+
+		<div class="top-row">
+			<h2>append</h2>
+			<div class="second">
+				<button class="append">.append</button>	
+				<p class="appendhere">click the button to append</p>
+				<p id="appendhere">Append in here</p>
+				
+			</div>	
+		</div>
+
+
+		<div class="top-row">
+			<h2>html</h2>
+			<div class="second">
+				<button class="html">.html</button>	
+				<p>click the button to add new html</p>
+				<p id="html"></p>
+				
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>attr</h2>
+			<div class="second">
+				<button class="attr">.attr</button>	
+				<p>click the button to change attr to a google link</p>
+				
+				<p><a href="https://yahoo.com" id="google">yahoo.com</a></p>
+				
+			</div>	
+		</div>
+		
+
+		<div class="top-row">
+			<h2>val</h2>
+			<div class="second">
+				<button class="val">.val</button>	
+				<p>click the button to change the value of the input below</p>
+				<p>Name: <input id="boom" type="text" name="user"></p>	
+			</div>	
+		</div>
+
+		<div class="top-row">
+			<h2>text</h2>
+			<div class="second">
+				<button class="text">.text</button>	
+				<p>click the button to add text to paragraph below</p>
+				<p id="text">Please read all of this:</p>	
+			</div>	
+		</div>
+
+
+
+
+
+
+	</div>
+</body>
+</html>

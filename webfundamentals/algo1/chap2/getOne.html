@@ -1,0 +1,43 @@
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+
+	function getOne(num){
+		var hun = Math.floor(num/100 %100); 
+		var ten = Math.floor(num/10 %10); 
+		var one = Math.floor(num % 10);
+		var add =hun + ten + one;
+
+		var again = Math.floor(add/10 % 10);
+        var againDigitt = Math.floor(add % 10);
+        var newer = again + againDigitt;
+  
+        var againn = Math.floor(newer/10 %10);
+        var againDigittt = Math.floor(newer %10);
+        var final = againn + againDigittt;
+        
+        console.log(final);
+    }
+    getOne(928);
+		
+
+
+  //       function getHun(num){
+  //       		Math.floor(num/100 %100);
+  //       	};
+       
+  //      	function getTen(num){
+  //       		Math.floor(num/10 %10);
+  //      		 };
+
+		// function getOne(num){
+  //       		Math.floor(num %10);
+  //       	};
+
+		
+</head>
+<body>
+
+</body>
+</html>
