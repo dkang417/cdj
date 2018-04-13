@@ -5,45 +5,49 @@ app.secret_key='123'
 import random 
 	
 
-@app.route('/')
+@app.route('/') 
 def index():
 	
 
-	if not 'totalGold' in session:
-		session['totalGold'] = 0
-
-	if not 'farmGold' in session:
-		session['farmGold'] = 0
-
-	if not 'houseGold' in session:
-		session['houseGold'] = 0
-
-	if not 'caveGold' in session:
-		session['caveGold'] = 0
-
-	if not 'casinoGold' in session:
-		session['casinoGold'] = 0
+	if not 'gold' in session:
+		session['gold'] = 0
+	if not 'activities' in session:
+		session['activities']=[]
 
 
-	return render_template('index.html', totalGold=session['totalGold'],caveGold=session['caveGold'], farmGold=session['farmGold'], houseGold=session['houseGold'], casinoGold=session['casinoGold'])
+	return render_template('index.html', gold=session['gold'],activities=session['activities'])
 
 @app.route('/process', methods=['POST'])
 def process():
 	
+	building = request.form['building']
+	if building == 'farm':
+	 	gold = random.randrange(10,21)
+	 	session['activities'].append({'activity' :"you entered the {} and earned {} gold ".format(building,gold)})
+		
+	elif building == 'cave':
+		gold = random.randrange(5,11)
+		session['activities'].append({'activity' : "you entered the {} and earned {} gold ".format(building,gold)})
+		
+
+	elif building == 'house':
+		gold = random.randrange(2,6)
+		session['activities'].append({'activity' : "you entered the {} and earned {} gold ".format(building,gold)})
+		
+
+	elif building == 'casino':
+		gold = random.randrange(-50,51)
+		session['activities'].append({'activity' : "you entered the {} and earned {} gold ".format(building,gold)})
+		
+
+	session['gold'] += gold
 	
-	if request.form['building'] == 'farm':
-	 	session['farmGold'] = random.randrange(10,21)
-		session['totalGold'] = session['totalGold']+session['farmGold']
-	elif request.form['building'] == 'cave':
-		session['caveGold'] = random.randrange(5,11)
-		session['totalGold']= session['totalGold'] + session['caveGold'] 
-	elif request.form['building'] == 'house':
-		session['houseGold'] = random.randrange(2,6)
-		session['totalGold'] = session['totalGold'] + session['houseGold']
-	elif request.form['building'] == 'casino':
-		session['casinoGold'] = random.randrange(-50,50)
-		session['totalGold'] = session['totalGold'] +session['casinoGold']
-	
+	return redirect('/')
+
+@app.route('/reset',methods=['POST']) 
+def reset():
+	session.pop('gold')
+	session.pop('activities')
 	return redirect('/')
 
 app.run(debug=True)

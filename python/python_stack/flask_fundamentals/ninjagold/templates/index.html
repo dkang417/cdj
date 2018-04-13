@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<p>Your Gold:   {{ totalGold }} </p>
+		<p>Your Gold:   {{ gold }} </p>
 		<div class="row">
 
 			<div class="sec">
@@ -45,15 +45,19 @@
 				</form>
 			</div>
 
-		</div> <!--> End Row  <-->
- 
+		</div> 
+		<p>	
+			<form action="/reset" method="POST">
+				<input type="submit" value="reset">		
+			</form> 
+		</p>
+	
 		<div class="act">
 			<p>Activities:</p>
-			<p>Earned {{ farmGold }} from the farm</p>
-			<p>Earned {{ caveGold }} from the cave</p>
-			<p>Earned {{ houseGold }} from the house</p>
-			<p>Earned or Lost {{ casinoGold }} from the casino
+			{% for activity in activities %}
+               <p>{{ activity.activity}}</p>
+            {% endfor %}	
 		</div>
-	</div>  <!-->  End Wrapper <-->
+	</div>  
 
     
