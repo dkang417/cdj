@@ -5,11 +5,19 @@
    	</head>
    	<body>   		
    		
+   		{% with messages = get_flashed_messages() %}
+       		{% if messages %}
+        		{% for message in messages %}
+           			<p>{{message}}</p>
+         		{% endfor %}
+       		{% endif %}
+   		{% endwith %}
 
    		<h2>Email Addresses Entered</h2>
-    	{% for email in email: %}
-	    <p>{{ email['email'] }} </p> 
+    	{% for email in emails: %}
+	    <p>Email: {{ email['email'] }} {{email['created_at']}} </p> 
 	    {% endfor %}
+
 
    		
    	</body>
