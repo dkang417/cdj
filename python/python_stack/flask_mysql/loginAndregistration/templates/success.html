@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="wrapper"> 
+		<h2>CONGRATS YOU ARE LOGGED IN</h2>
+	    	{% for login in logins: %}
+		    <p>First Name: {{ login['first_name'] }} 
+		    Last Name: {{login['last_name']}}
+		    Email: {{login['email']}}
+		    </p> 
+		    {% endfor %}
+	</div>
+
+</body>
+</html>

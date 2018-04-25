@@ -34,4 +34,5 @@ def result():
 		create(request)
 		return display()
 
+
 app.run(debug=True)
