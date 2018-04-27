@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			<h3>CodingDojo Wall</h3>
+		</header>
+		<h2>Logout</h2>
+		<form action="/logout" method="POST" name="logout">
+			
+			<input type="submit" value="logout"/>
+		</form>
+
+		<form action="/makemessage" method="POST" name="add_message">
+			Post a message <br>
+			<textarea rows="4" cols="50" name="add_message"></textarea> <br>	
+    		<input type="submit" name="add_message" value="post a message" />
+		</form>
+
+		{% for message in messages: %}
+		<h3>{{message['first_name']}} {{ message['last_name']}}'s message says:  {{message['created_at']}}</h3>
+		<p>{{message['message']}}</p>
+		 <form action="/makecomment/{{ message['id'] }}" method='POST'>
+            <p>Add a comment below:</p>
+            <textarea name="add_comment"></textarea>
+            <input type="submit" name="add_comment" value="Comment!">
+        	{% for comment in comments: %} 
+            {% if message['id'] == comment["messages_id"] %}
+                <ul>
+                	<h3>{{ comment["first_name"] }} {{ comment["last_name"]}} - {{message["created_at"]}}</h3>
+                    <p>{{ comment["comment"] }}</p>
+                </ul>
+            {% endif %}
+        	{% endfor %}
+
+		   
+		{% endfor %}
+
+		
+		
+		
+	</div>
+</body>
+</html>
