@@ -13,55 +13,70 @@ app.secret_key = "secret"
 @app.route('/')
 def index():     
 	return render_template('index.html') 
-def create(request):
-	first_name = request.form['first_name'],
-	last_name = request.form['last_name'],
-	email = request.form['email'],
-	password = request.form['password']
-	pw_hash = bcrypt.generate_password_hash(password)
-	query = "INSERT INTO users(first_name, last_name, email, password,created_at, updated_at) Values(:first_name, :last_name, :email, :pw_hash,now(), now())"
-	data = {
-		'first_name':request.form['first_name'],
-		'last_name': request.form['last_name'],
-		'email': request.form['email'],
-		'pw_hash': pw_hash
-	}
-	mysql.query_db(query,data)
-
 
 @app.route('/register', methods=['POST'])
 def result():
-		if len(request.form['email']) < 1:
+
+		first_name = request.form['first_name'],
+		last_name = request.form['last_name'],
+		email = request.form['email'],
+		password = request.form['password']
+		errors = False 
+
+		if len(email) < 1:
 			flash("email can't be empty!")
-			return redirect('/')
+			errors = True 
 		elif not EMAIL_REGEX.match(request.form['email']):
 			flash("Invalid Email Address!")
-			return redirect('/')
-		if len(request.form['first_name']) < 1:
+			errors = True
+		if len(first_name) < 1:
 			flash("First name can't be empty!")
-			return redirect('/')
-		if request.form['first_name'].isalpha() == False:
+			errors = True
+		elif not request.form['first_name'].isalpha():
 			flash("first name cant contain any numbers")
-			return redirect('/')
-		if len(request.form['last_name']) < 1:
+			errors = True
+		if len(last_name) < 1:
 			flash("Last name can't be empty!")
-			return redirect('/')
-		if request.form['last_name'].isalpha() == False:
+			errors = True
+		elif not request.form['last_name'].isalpha():
 			flash("last name cant contain any numbers")
-			return redirect('/')
-		if len(request.form['password']) <= 8:
+			erorrs = True
+		if len(password) <= 8:
 			flash("password must be more than 8 characters")
-			return redirect('/')
+			errors = True
 		if len(request.form['confirm']) < 1:
 			flash("password can't be empty!")
-			return redirect('/')
-		if request.form['password'] != request.form['confirm']:
+			errors = True 
+		if password != request.form['confirm']:
 			flash("passwords do not match")
+			errors = True
+		
+		if errors == True:
 			return redirect('/')
 		else:
-			create(request)
-			flash("User Created!! Please Login")
-			return redirect('/')
+
+			#query users for existing email address
+			query = "SELECT * FROM users WHERE email = :email LIMIT 1"
+			data = {
+				'email': email
+			}
+			user = mysql.query_db(query,data)
+			if len(user) > 0: #we have that email already
+				flash('sorry email already taken')
+				return redirect('/')
+			else:	
+				# run validations if they are all successful create password hash with bcrypt
+				pw_hash = bcrypt.generate_password_hash(password)
+				query = "INSERT INTO users(first_name, last_name, email, password,created_at, updated_at) Values(:first_name, :last_name, :email, :pw_hash,now(), now())"
+				data = {
+					'first_name':request.form['first_name'],
+					'last_name': request.form['last_name'],
+					'email': request.form['email'],
+					'pw_hash': pw_hash
+				}
+				mysql.query_db(query,data)
+				flash("User Created!! Please Login")
+				return redirect('/')
 
 @app.route('/login', methods=['POST'])
 def logged():
@@ -72,15 +87,17 @@ def logged():
 			'email':email
 		}
 		user = mysql.query_db(query,data)
-		if not user:
-			flash("Please enter valid email.", 'login_error')
-			return redirect('/')
-		elif bcrypt.check_password_hash(user[0]['password'], password):
-			session['user_id'] = user[0]['id']
-			return render_template('success.html')
+		if len(user) > 0 : 
+			if bcrypt.check_password_hash(user[0]['password'], password):
+				#login user into session
+				session['user_id'] = user[0]['id']
+				return render_template('success.html')
+			else:
+				flash('Incorrect combination of email/password')
+				return redirect('/')
 		else:
-			flash('Invalid login', 'login_error')
-			return render_template('index.html')
+			flash('Incorrect combo of email/password')
+			return redirect('/')
 
 @app.route('/success', methods=['GET'])
 def wall():
