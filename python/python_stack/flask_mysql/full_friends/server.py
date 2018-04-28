@@ -10,6 +10,7 @@ def index():
 	return render_template('index.html', all_friends=friends)
 
 
+
 @app.route('/friends', methods=['POST'])
 def create():
 	query = "INSERT INTO friends(name,age,created_at,updated_at) Values(:name,  :age, now(), now())"
@@ -18,10 +19,5 @@ def create():
 		'age': request.form['age']
 	}
 	mysql.query_db(query, data)
-    # add a friend to the database!
 	return redirect('/')
-
-
-
-
 app.run(debug=True)

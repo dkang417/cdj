@@ -90,7 +90,8 @@ def logged():
 		if len(user) > 0 : 
 			if bcrypt.check_password_hash(user[0]['password'], password):
 				#login user into session
-				session['user_id'] = user[0]['id']
+				session['user_id'] = user[0]['id'],
+				session['user_name'] = user[0]['first_name']
 				return render_template('success.html')
 			else:
 				flash('Incorrect combination of email/password')
@@ -114,19 +115,19 @@ def makemessage():
 		'currentsession': session['user_id'],
 		'user_message': request.form['add_message']
 	       }
-   	query = 'INSERT INTO messages (users_id, message, created_at, updated_at) VALUES (:currentsession, :user_message, NOW(), NOW())'			
-   	messages=mysql.query_db(query,data)
+   	query = 'INSERT INTO messages (users_id, message, created_at, updated_at) VALUES (:currentsession, :user_message, NOW(), NOW())'
+   	messages=mysql.query_db(query,data)	
    	return redirect('/success')
 
 
-@app.route('/makecomment/<id>', methods=['POST'])
-def makecomment(id):
+@app.route('/makecomment/<message_id>', methods=['POST'])
+def makecomment(message_id):
 	data = {
-		'specific_id': id,
+		'message_id': message_id,
 		'currentsession': session['user_id'],
 		'comment': request.form['add_comment']
 		  }
-	query = 'INSERT INTO comments (messages_id, users_id, comment, created_at, updated_at) VALUES (:specific_id, :currentsession, :comment, NOW(), NOW())'
+	query = 'INSERT INTO comments (messages_id, users_id, comment, created_at, updated_at) VALUES (:message_id, :currentsession, :comment, NOW(), NOW())'
 	comments = mysql.query_db(query,data)
 	return redirect('/success')
 
@@ -134,7 +135,6 @@ def makecomment(id):
 def logout():
 	session.clear()
 	return redirect('/')
-
 
 
 app.run(debug=True)
