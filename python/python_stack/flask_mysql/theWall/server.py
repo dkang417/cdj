@@ -91,7 +91,7 @@ def logged():
 			if bcrypt.check_password_hash(user[0]['password'], password):
 				#login user into session
 				session['user_id'] = user[0]['id'],
-				session['user_name'] = user[0]['first_name']
+				session['user_name'] = user[0]['first_name']	
 				return render_template('success.html')
 			else:
 				flash('Incorrect combination of email/password')
@@ -103,7 +103,7 @@ def logged():
 @app.route('/success', methods=['GET'])
 def wall():
 	query = 'SELECT users.first_name, users.last_name, messages.message, messages.id, messages.created_at FROM messages JOIN users ON messages.users_id=users.id'
-   	comment_query = 'SELECT comments.users_id, comments.comment, comments.messages_id, users.first_name, users.last_name FROM comments INNER JOIN users ON users.id=comments.users_id INNER JOIN messages ON messages.id = comments.messages_id'
+   	comment_query = 'SELECT comments.users_id, comments.comment, comments.messages_id, users.first_name, users.last_name FROM comments  JOIN users ON users.id=comments.users_id  JOIN messages ON messages.id = comments.messages_id'
    	messages = mysql.query_db(query)
    	comments = mysql.query_db(comment_query)
    	return render_template('success.html', messages=messages, comments=comments)

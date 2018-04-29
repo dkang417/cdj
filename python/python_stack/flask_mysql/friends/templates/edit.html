@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>update</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Edit {{friends.first_name}}</h1>
+
+		  <form action='/friends/{friend_id}/edit' method='POST'>
+		    <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+		    <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+		    <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+		    <input type="submit" value="Add">
+		  </form>
+	</div>
+
+</body>
+</html>

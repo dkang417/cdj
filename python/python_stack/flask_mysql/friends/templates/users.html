@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>users</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>{{friends.first_name}} </h1>
+		<p>{{friends.last_name}}, {{friends.occupation}} </p>
+		<p>{{friends.created_at}}</p>
+	</div>
+	<div>
+	
+
+		<form action="/friends/{{friends['id']}}/destroy">
+			<input type="submit" value="Delete">
+		</form>
+		
+	</div>
+
+</body>
+</html
