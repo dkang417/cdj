@@ -19,15 +19,13 @@ class Call(object):
         print "Reason for Call: {}".format(self.reason)
         return self
 
-
 class CallCenter(object):
     def __init__(self):
         self.calls = []
         self.queue_size = self.get_queue_size()
 
     def get_queue_size(self):
-        return len(self.calls)
-       
+        return len(self.calls)      
 
     def add(self, call):
         self.calls.append(call)
@@ -53,5 +51,3 @@ att.add(call1).add(call2)
 #remove call 2 and display all calls in call center att
 att.remove(call1)
 att.info()
-
-

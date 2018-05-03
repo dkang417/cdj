@@ -7,7 +7,8 @@ class Patient(object):
 		self.id = Patient.Patient_Count
 		self.bed_num = None
 		Patient.Patient_Count += 1
-
+	def display_info(self):
+		print "Name is {}, allergic to {}, patient id is {}, bed number is {}".format(self.name,self.allergies,self.id,self.bed_num)
 
 class Hospital(object):
 	
@@ -25,8 +26,6 @@ class Hospital(object):
 				"Available": True
 				})
 		return beds 
-
-
 
 	def admit(self,patient):
 		if len(self.patients) <= self.capacity:
@@ -52,7 +51,7 @@ class Hospital(object):
 						break 
 
 				self.patients.remove(patient)
-				return "Patient #{} succesfully discharged. Bed #{} now available".format(patient.id, patient.bed_num)
+				print "Patient #{} succesfully discharged. Bed #{} now available".format(patient.id, patient.bed_num)
 		return "Patient not found"
 
 
@@ -60,20 +59,18 @@ mike = Patient("Mike","cheese")
 leo = Patient("Leo", "milk")
 stan = Patient("Stan", "fruit")
 barkley = Patient("Barkley", "wheat")
-david = Patient("david","dairy")
+david = Patient("David","dairy")
 mat = Patient("Lmat", "alchohol")
-jacob = Patient("jacob", "flour")
-noah = Patient("noah", "sugar")
-yoenis = Patient("yoenis","grain")
-daniel = Patient("daniel", "glutten")
+jacob = Patient("Jacob", "flour")
+noah = Patient("Noah", "sugar")
+yoenis = Patient("Yoenis","grain")
+daniel = Patient("Daniel", "glutten")
 
 elmhurtsHospital = Hospital("Elmhurt Hospital", 10)
 elmhurtsHospital.admit(mike).admit(leo).admit(stan).admit(barkley).admit(daniel).admit(yoenis).admit(noah).admit(jacob).admit(mat).admit(david)
 
 elmhurtsHospital.discharge(8)
 
-#bed number 5 is free 
-
-
+daniel.display_info()
 
 
