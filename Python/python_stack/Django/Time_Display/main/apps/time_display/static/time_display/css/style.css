@@ -1,0 +1,19 @@
+#wrapper {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+p {
+	text-align: center;
+	color: blue;
+}
+
+.time {
+	border: 2px solid pink;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1{
+	color: purple;
+}
