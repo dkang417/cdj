@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<p>Random Word (attempt # {{ request.session.counter }})</p>
+		<h2>{{ random_string }}</h2>
+		<form action="/" method="POST">
+			{% csrf_token %}
+			<input type="submit" name="submit" value="Generate">		
+		</form>
+
+
+		<a href="/reset">Reset Counter</a>
+	</div>
+</body>
+</html>
