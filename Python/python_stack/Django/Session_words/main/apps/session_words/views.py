@@ -5,7 +5,7 @@ from datetime import datetime
 def index(request):
 	if request.session.get('words') == None:
 		request.session['words'] = []
-		
+
 	return render(request,'session_words/index.html')
 
 def process(request):
@@ -19,9 +19,11 @@ def process(request):
 	else: 
 		font = "normal"
 
-	dateandtime = datetime.strftime(datetime.now(), "%H:%M:%S %p, %B %d, %Y")
+	myDate = datetime.now()
+	formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+	# dateandtime = datetime.strftime(datetime.now(), "%H:%M:%S %p, %B %d, %Y")
 
-	request.session['words'].append({'word': word, 'color':color, 'font': font, 'dateandtime': dateandtime})
+	request.session['words'].append({'word': word, 'color':color, 'font': font, 'formatedDate': formatedDate})
 	request.session.modified = True
 	
 	return redirect('/result')
