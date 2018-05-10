@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from datetime import datetime
+from time import strftime, localtime
 
 
 def index(request):
@@ -19,11 +19,15 @@ def process(request):
 	else: 
 		font = "normal"
 
-	myDate = datetime.now()
-	formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
-	# dateandtime = datetime.strftime(datetime.now(), "%H:%M:%S %p, %B %d, %Y")
-
-	request.session['words'].append({'word': word, 'color':color, 'font': font, 'formatedDate': formatedDate})
+	time = strftime("%I:%M %p, %b %d %Y", localtime())
+	
+	new_word = {
+		'word': word,
+		'color':color, 
+		'font': font, 
+		'time': time
+		}
+	request.session['words'].append(new_word)
 	request.session.modified = True
 	
 	return redirect('/result')

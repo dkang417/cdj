@@ -37,7 +37,7 @@
 
 		  	<div class="words">
 		  		{% for word in request.session.words %}
-		  			<p> <span class="{{word.color}} {{word.font}}"> {{word.word}}</span>-added on {{word.formatedDate}} </p>
+		  			<p> <span class="{{word.color}} {{word.font}}"> {{word.word}}</span>-added on {{word.time}} </p>
 		  			 
 		  		{% endfor %}
 		  	</div>
