@@ -3,8 +3,7 @@ from time import strftime, localtime
 
 
 def index(request):
-	if request.session.get('words') == None:
-		request.session['words'] = []
+ 
 
 	return render(request,'session_words/index.html')
 

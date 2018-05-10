@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users Edit</title>
+</head>
+<body>
+	<div id="wrapper">
+		<p>{{ user.id  }} </p>
+		<p>{{ user.first_name }} {{ user.last_name}} </td>
+		<p>{{ user.email  }} </p>
+		<p>{{ user.created_at  }} </p>
+		<p><a href="/users/{{user.id}}/delete">DELETE</a> |  <a href="/users/{{user.id}}/edit">EDIT</a> </p>
+	</div>
+</body>
+</html>
