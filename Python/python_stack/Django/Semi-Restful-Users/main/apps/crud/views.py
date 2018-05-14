@@ -29,7 +29,7 @@ def create(request):
 def delete(request,user_id):
 	User.objects.get(id=user_id).delete()
 	return redirect('/users')	
-	
+
 def edit(request,user_id):
 	context = {
 		"user": User.objects.get(id=user_id)
@@ -37,6 +37,7 @@ def edit(request,user_id):
 	return render(request, "crud/edit.html", context)
 
 def show_or_update(request,user_id):
+		#update things if post route
 	if request.method == "POST":
 		user =User.objects.get(id=user_id) 
 		user.first_name = request.POST["first_name"]
@@ -44,7 +45,8 @@ def show_or_update(request,user_id):
 		user.email = request.POST["email"]
 		user.save()
 		return redirect('/users')
-	else:
+	else: 
+		#show things 
 		context = {
 			"user": User.objects.get(id=user_id)
 		}
