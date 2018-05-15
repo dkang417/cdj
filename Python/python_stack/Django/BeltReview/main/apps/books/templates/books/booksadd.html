@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add book and Review</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="main">
+
+			<h1>Add a New Book title and a Review</h1>
+			
+			<form action="/processreview" method="POST">
+			{% csrf_token %}
+				<label for ="book_title">Book Title:</label> 
+				<input type="text" name="book_title"><br>
+				
+				<label for ="book_author">Author:</label> <br>
+				Choose from the list:
+				<select name="book_author">
+				  <option value="king">Stephen King</option>
+				  <option value="stine">RL Stine</option>
+				  <option value="gladwell">Malcom Gladwell</option>
+				  <option value="collins">James Collins</option>
+				</select><br>
+				Or add a new author: 
+				<input type="text" name="book_author"><br>
+				
+				<label for ="book_review">Review:</label> 
+				<input type="text" name="book_review"> <br>
+				
+				<select name="book_rating">
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="3">3</option>
+				  <option value="4">4</option>
+				  <option value="5">5</option>
+				</select>
+
+				<input type="submit" name="addbookandreview" value="Add book and review">
+			</form>
+			  
+		</div>
+	</div>
+
+</body>
+</html>

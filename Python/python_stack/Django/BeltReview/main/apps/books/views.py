@@ -9,9 +9,10 @@ from .models import *
 def index(request):
 	#protects our url from people not logged in
 	if request.session.get('id') != None:
-		return redirect('/success')
+		return redirect('/books')
 
-	return render(request,'loginandregister/index.html')
+	return render(request,'books/index.html')
+
 
 def register(request):
 		errors = User.objects.basic_validator(request.POST)
@@ -21,29 +22,28 @@ def register(request):
 				messages.error(request, error, extra_tags=tag)
 				return redirect("/")
 		else:
-			first_name = request.POST["first_name"]
-			last_name = request.POST["last_name"]
+			name = request.POST["name"]
+			alias = request.POST["alias"]
 			email = request.POST["email"]
 			password = request.POST["password"]
 			hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
-			User.objects.create(first_name= first_name, last_name= last_name, email= email, password= hashed_pw)
+			User.objects.create(name= name, alias= alias, email= email, password= hashed_pw)
 			
 			user = User.objects.get(email=email)
 			
 			request.session['id']= user.id
 
 			messages.success(request,'Successfully Registered!')
-			return redirect('/success') 
-
-def success(request):
+			return redirect('/books') 
+def books(request):
 	if request.session.get('id') == None:
 		return redirect('/')
 
 	user = User.objects.get(id=request.session['id'])
 	context = {'user': user}
 
-	return render(request, 'loginandregister/success.html', context)
+	return render(request, 'books/books.html', context)
 
 def login(request):
 	email = request.POST['email']
@@ -56,7 +56,7 @@ def login(request):
 		if checkpassword:
 			request.session['id'] = user[0].id 
 			messages.success(request, 'Successfully logged in!')
-			return redirect('/success')
+			return redirect('/books')
 	
 		else:
 			# right id but wrong password
@@ -70,3 +70,25 @@ def login(request):
 def logout(request):
 	request.session.clear()
 	return redirect('/')
+
+# def processreview(request):
+# 	return redirect('/add')
+
+def add(request): 
+	book_title = request.POST["book_title"]
+	book_author= request.POST["book_author"]
+	book_review = request.POST["book_review"]
+	book_rating = request.POST["book_rating"]
+
+	Author.objects.create(author= book_author)
+	Book.objects.create(title= book_title)
+	Review.objects.create(comment= book_review, rating= book_rating)
+	
+
+	return redirect('books/{}'.format(book.id))
+
+def booksadd(request):
+	return render(request, 'books/booksadd.html')
+
+def bookpage(request):
+	return render(request, 'books/showbookreview.html')
