@@ -43,7 +43,7 @@ class BookManager(models.Manager):
 		return errors
 class Book(models.Model):
 	title = models.CharField(max_length=255)
-	author = models.ForeignKey(Author, related_name="books", null=True)
+	author = models.ForeignKey(Author, related_name="books")
 	created_at = models.DateTimeField(auto_now_add = True)
 	updated_at = models.DateTimeField(auto_now = True)
 	objects = BookManager()

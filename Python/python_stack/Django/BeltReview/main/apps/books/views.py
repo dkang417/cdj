@@ -74,18 +74,18 @@ def logout(request):
 # def processreview(request):
 # 	return redirect('/add')
 
-def add(request): 
+def add(request, id): 
 	book_title = request.POST["book_title"]
 	book_author= request.POST["book_author"]
 	book_review = request.POST["book_review"]
 	book_rating = request.POST["book_rating"]
 
-	Author.objects.create(author= book_author)
-	Book.objects.create(title= book_title)
-	Review.objects.create(comment= book_review, rating= book_rating)
+	author = Author.objects.create(author= book_author)
+	book = Book.objects.create(title= book_title, author = author)
+	Review.objects.create(comment= book_review, rating= book_rating, book=book, user=User.objects.get(id=request.session['id']))
 	
 
-	return redirect('books/{}'.format(book.id))
+	return redirect('books/{}'.format(id))
 
 def booksadd(request):
 	return render(request, 'books/booksadd.html')
