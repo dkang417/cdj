@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib import messages
 
-# Create your models here.
+
 class UserManager(models.Manager):
     def validate(self, request):
         if request.method == "POST":
@@ -27,8 +27,6 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
-
-
 class AuthorManager(models.Manager):
 	def validate_author(self,request):
 		errors= {}
@@ -50,13 +48,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, related_name="books")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-#Book.objects.get(id=1).author
-#author = Author.objects.get(id=1) <Author object>
-#author.has_books.filter(title="asfds") [fds]
-#author.has_books.all()
 
-#User.objects.get(id=1).reviews.all()
-#Book.objects.get(id=1).reviews.all()
 
 class ReviewManager(models.Manager):
 	def validate_review(self,request):
@@ -71,4 +63,4 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-# User.objects.get(id=1) #User or Manager
+

@@ -7,16 +7,28 @@
 <body>
 	<div id="wrapper">
 		<div>
-			<h2>Welcome {{ user.name}}</h2>
-				{% for review in reviews %}
+			<h2>Welcome {{ user.name}} to homepage</h2>
+
+			<h4><a href="/books/add">review a book</a></h4>
+			<h4><a href="/logout">logout</a></h4>
+			<h4>Recent Book Reviews:</h4>
+			
+				{% for review in recent_reviews %}
 				<h3>{{ review.book.title }}</h3>
 					<p>rating: {{ review.rating }}</p>
-					<p>{{review.user.name}} says - "{{ review.content }}"</p>
+					<p><a href="users/{{review.user.id}}">{{review.user.name}}</a> says - "{{ review.content }}"</p>
 					<p>Posted on {{ review.created_at  }}</p>
 				{% endfor %}
 
-			<p><a href="/books/add">review a book</a></p>
-			<p><a href="/logout">logout</a></p>
+
+			<h2>Other Books with Reviews:</h2>
+				{%  for book in books  %}
+				
+					<p><a href="/books/{{book.id}}">{{ book.title }}</a></p>
+				
+				{% endfor %}
+
+
 		</div>
 	</div>
 </body>
