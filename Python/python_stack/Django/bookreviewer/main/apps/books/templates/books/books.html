@@ -24,7 +24,7 @@
 			<h2>Other Books with Reviews:</h2>
 				{%  for book in books  %}
 				
-					<p><a href="/books/{{book.id}}">{{ book.title }}</a></p>
+					<p><a href="/books/{{book.id}}">{{book.title}} by:  {{ book.author.name }}</a></p>
 				
 				{% endfor %}
 

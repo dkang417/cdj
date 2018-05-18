@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .models import *
+import bcrypt
 
 # Create your views here.
 def index(request):
@@ -18,7 +19,9 @@ def login(request):
     users = User.objects.filter(email=request.POST["email"])
     if len(users) > 0:
         user = users[0]
-        if user.password == request.POST["password"]:
+        password = request.POST['password']
+        newPassword = bcrypt.checkpw(password.encode(), user.password.encode())
+        if newPassword: 
             request.session["active_id"] = user.id 
             return redirect('/books')
          
@@ -32,7 +35,6 @@ def books(request):
 	context = {
 		'user' : User.objects.get(id=request.session['active_id']),
 		'books': Book.objects.all(),
-		
 		'recent_reviews':Review.objects.all().order_by('-created_at')[:3]
 	}
 	return render(request, 'books/books.html', context)
@@ -83,6 +85,7 @@ def showusers(request, id):
 	reviews = Review.objects.filter(book=book)
 	total_reviews= len(user.reviews.all())
 	reviewed_books = Review.objects.filter(user=user).values_list('book_id', 'content').distinct()
+	
 
 
 	context = {
@@ -98,7 +101,6 @@ def addreview(request,id):
 	book = Book.objects.get(id=id)
 	review = request.POST['review']
 	rating = request.POST['rating']
-
 
 	Review.objects.create(rating=rating, content = review, user=user, book = book)
 	

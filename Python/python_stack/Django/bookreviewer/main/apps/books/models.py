@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib import messages
-
+import bcrypt
 
 class UserManager(models.Manager):
     def validate(self, request):
@@ -13,11 +13,19 @@ class UserManager(models.Manager):
                 if request.POST[key] == "":
                     valid = False
                     messages.error(request, "{} is required".format(key))
+            if len(request.POST["password"]) <= 8:
+            	valid= False 
+            	messages.error(request, "password must be more than 8 characters")
             if request.POST["password"] != request.POST["confirm_password"]:
                 valid = False
                 messages.error(request, "password must match confirm password")
             if valid:
-                self.create(name=request.POST["name"], email=request.POST["email"], password=request.POST["password"])
+            	name = request.POST["name"]
+            	email = request.POST["email"]
+            	password = request.POST["password"]
+            	hashed_pw = bcrypt.hashpw(password.encode(),bcrypt.gensalt())
+
+                self.create(name=name, email=email, password=hashed_pw)
                 messages.success(request, "Successfully registered")
 class User(models.Model):
     name = models.CharField(max_length=255)
