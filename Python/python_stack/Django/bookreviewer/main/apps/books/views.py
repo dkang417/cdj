@@ -36,7 +36,7 @@ def books(request):
 	context = {
 		'user' : User.objects.get(id=request.session['active_id']),
 		'books': Book.objects.all(),
-		'recent_reviews':Review.objects.all().order_by('-created_at')[:3]
+		'recent_reviews':Review.objects.all().order_by('-created_at')[0:3]
 	}
 	return render(request, 'books/books.html', context)
 
@@ -94,15 +94,12 @@ def getuser(request):
 
 def showusers(request, id):
 	user = User.objects.get(id=id)
-	book = Book.objects.get(id=id)
-	reviews = Review.objects.filter(book=book)
-	total_reviews= len(user.reviews.all())
-	reviewed_books = Review.objects.filter(user=user).values_list('book_id', 'content').distinct()
+	total_reviews= len(user.reviews.all())	
+	reviewed_books = Review.objects.filter(user=user)
 	
 
 	context = {
 		'user': user,
-		'reviews': reviews,
 		'total_reviews': total_reviews,
 		'reviewed_books': reviewed_books
 	}

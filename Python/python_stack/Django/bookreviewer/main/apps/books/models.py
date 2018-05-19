@@ -56,6 +56,8 @@ class Book(models.Model):
     author = models.ForeignKey(Author, related_name="books")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    def __repr__(self):
+		return "<Book object: {} {}>".format(self.title,self.author)
 
 
 class ReviewManager(models.Manager):
