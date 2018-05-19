@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^users/(?P<id>\d+)$', views.showusers),
     url(r'^books/(?P<id>\d+)/addreview$', views.addreview),
     url(r'^books/(?P<bookid>\d+)/delete/(?P<reviewid>\d+)$', views.delete)
- 
+
 ]

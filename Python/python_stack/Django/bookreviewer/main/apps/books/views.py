@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import *
 import bcrypt
 
-# Create your views here.
+
 def index(request):
     if "active_id" in request.session:
         return redirect('/books')
@@ -29,6 +29,7 @@ def login(request):
     return redirect("/")
 
 def books(request):
+	#make sure user is logged in
 	if request.session.get('active_id') == None:
 		return redirect('/')
 
@@ -51,16 +52,28 @@ def add(request):
 
 def addbook(request):
 	if request.method == "POST":
-		if request.POST['author_write'] == '':
-			author = Author.objects.get(id=request.POST['author_list'])
-		else:
-			author = Author.objects.create(name=request.POST['author_write'])
+		
+   		author_name = request.POST["new_author"]
+   		if author_name == "":
+   			author_name = request.POST["old_author"]
+   		author = Author.objects.filter(name=author_name)
+   		if len(author) == 0:
+   			author = Author.objects.create(name = author_name)
+   		else: 
+   			author = author[0]
 
 		title = request.POST['title']
 		review = request.POST['content']
 		rating = request.POST['rating']
 
-		book = Book.objects.create(title=title, author = author)
+		book =Book.objects.filter(title=title)
+		#check if there is a book with that title
+		if len(book) == 0:
+			book = Book.objects.create(title=title, author = author)
+		else:
+			book = book[0]
+
+		#create review	
 		Review.objects.create(rating=rating, content = review, user=User.objects.get(id=request.session['active_id']), book = book)
 
 		return redirect("/books/{}".format(book.id))
@@ -86,7 +99,6 @@ def showusers(request, id):
 	total_reviews= len(user.reviews.all())
 	reviewed_books = Review.objects.filter(user=user).values_list('book_id', 'content').distinct()
 	
-
 
 	context = {
 		'user': user,

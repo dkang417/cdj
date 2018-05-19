@@ -16,8 +16,8 @@
 				<input type="text" name="title"><br>
 				
 				{% if authors %}
-				<label for="author_list">Choose author from the list:</label>
-				<select name="author_list">
+				<label for="old_author">Choose author from the list:</label>
+				<select name="old_author">
 					{% for author in authors %}
 					<option value="{{ author.id }}">{{ author.name }}</option>
 					{% endfor %}
@@ -25,7 +25,7 @@
 				{% endif %}
 
 				add a new author: 
-				<input type="text" name="author_write"><br>
+				<input type="text" name="new_author"><br>
 				
 				<label for ="content">Review:</label> 
 				<input type="text" name="content"> <br>

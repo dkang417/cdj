@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^register$', views.register),
     url(r'^dashboard$', views.dashboard),
+    url(r'^logout$', views.logout)
     # url(r'^users/create$', views.create),
     # url(r'^users/(?P<user_id>\d+)/delete$', views.delete),
     # url(r'^users/(?P<user_id>\d+)/edit$', views.edit),
