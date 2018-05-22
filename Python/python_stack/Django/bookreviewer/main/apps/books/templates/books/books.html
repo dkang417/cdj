@@ -13,9 +13,9 @@
 			<h4><a href="/logout">logout</a></h4>
 			<h4>Recent Book Reviews:</h4>
 			
-				{% for review in recent_reviews %}
+				{% for review in latest_three %}
 
-				<h3>{{ review.book.title }}</h3>
+				<h3><a href="/books/{{review.book.id}}">{{ review.book.title }}</a> </h3>
 					<p>rating: {{ review.rating }}</p>
 					<p><a href="users/{{review.user.id}}">{{review.user.name}}</a> says - "{{ review.content }}"</p>
 					<p>Posted on {{ review.created_at  }}</p>
@@ -23,7 +23,7 @@
 
 
 			<h2>Other Books with Reviews:</h2>
-				{%  for book in books  %}
+				{%  for book in other_books  %}
 					
 					<p><a href="/books/{{book.id}}">{{book.title}} by:  {{ book.author.name }}</a>
 					</p> 

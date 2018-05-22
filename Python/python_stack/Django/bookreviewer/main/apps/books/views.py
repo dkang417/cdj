@@ -33,10 +33,17 @@ def books(request):
 	if request.session.get('active_id') == None:
 		return redirect('/')
 
+	
+	latest_three = Review.objects.all().order_by('-created_at')[0:3]
+	ids = []
+	for review in latest_three:
+		ids.append(review.book.id)
+
 	context = {
 		'user' : User.objects.get(id=request.session['active_id']),
-		'books': Book.objects.all(),
-		'recent_reviews':Review.objects.all().order_by('-created_at')[0:3]
+		'latest_three': latest_three,
+		'other_books':Book.objects.exclude(id__in=ids),
+		
 	}
 	return render(request, 'books/books.html', context)
 

@@ -1,13 +1,13 @@
 
 from django.conf.urls import url
 from .import views
+
 urlpatterns = [
 	
     url(r'^$', views.index),
-    # url(r'^blogs$', views.index),
-    # url(r'^blogs/new$', views.new),
-    # url(r'^blogs/create$', views.create),
-    # url(r'^blogs/(?P<number>\d+)$', views.show),
-    # url(r'^blogs/(?P<number>\d+)/edit$', views.edit),
-    # url(r'^blogs/(?P<number>\d+)/delete$', views.destroy)
+    url(r'^blogs$', views.index),
+    url(r'^all.json$', views.all_json),
+    url(r'^all.html$', views.all_html),
+    url(r'^find$', views.find),
+    url(r'^create$', views.create)
 ]
