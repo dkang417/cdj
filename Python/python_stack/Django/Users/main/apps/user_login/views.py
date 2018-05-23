@@ -1,9 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
-
 from models import *
-
 from django.core import serializers
+import json
 
 def index(request):
 	return render(request,"user_login/index.html")
@@ -22,9 +21,9 @@ def find(request):
 	return render(request, "user_login/all.html", {"users": users})
 
 def create(request):
-	User.objects.create(first_name = request.POST['first_name'],last_name = request.POST['last_name'], email_address = request.POST['email_address'])
-	users= User.objects.order_by('-id')
-	return render(request, "user_login/all.html", {"users":users})
+	User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email_address = request.POST['email_address'])
+
+	return render(request, "user_login/all.html", {"users":User.objects.order_by("-id")})
 
 
 

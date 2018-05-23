@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous">
+	 </script>
+</head>
+<body>
+	<div>
+		<h1>My Posts</h1>
+		<div id="myposts">
+			
+		</div>
+		<form action="add_note" method="POST" id="thenote">
+			{% csrf_token %}
+			<label for="note"> Add a Note:</label><br>
+			<textarea name="note"></textarea><br>
+			<input type="submit" value="Post It!">
+			
+		</form>
+			
+	</div>
+	<script>
+		$('#thenote').submit(function(e){
+			e.preventDefault();
+			console.log('sending ajax' , $(this).attr('action'));
+			console.log('Submitting the following data', $(this).serialize());
+			$.ajax({
+				url: $(this).attr('action'), /* Where should this go? */
+	        	method: 'post', /* Which HTTP verb? */
+	        	data: $(this).serialize(), /* Any data to send along? */
+	        	success: function(serverResponse) { /* What code should we run when the server responds? */
+	            	$('#myposts').append(serverResponse);
+	            	$('#thenote')[0].reset()
+	            }
+			})
+		});
+	</script>
+
+</body>
+</html>
